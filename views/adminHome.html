@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+</head>
+<body>
+      <h1>Productos</h1>
+
+<form id="form-producto" enctype="multipart/form-data">
+  <input type="text" id="titulo" name="titulo" placeholder="Nombre del producto" required>
+  <input type="text" id="descripcion" name="descripcion" placeholder="Describí brevemente el producto" required>
+  <input type="number" id="precio-final" name="precio-final" placeholder="Precio final SIN descuento" required>
+  <input type="number" id="precio-descuento" name="precio-descuento" placeholder="Precio final CON descuento" required>
+  <input type="number" id="cuotas" name="cuotas" placeholder="Indique cantidad de cuotas" required>
+  <input type="file" name="fotos" id="fotos" multiple accept="image/*" required>
+  <button type="submit">Agregar</button>
+</form>
+
+  <table id="tabla-productos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+         <th>Precio SIN descuento</th>
+        <th>Precio CON descuento</th>                
+        <th>Número de Cuotas</th>                
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Los productos se insertarán aquí -->
+    </tbody>
+  </table>
+  
+
+  <script src="/main.js"></script>
+</body>
+</html>

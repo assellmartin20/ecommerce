@@ -1,0 +1,51 @@
+
+#nombre{
+    width: 80%;
+    border-radius: 7px;
+    padding:10px;
+
+}
+#email{
+   width: 80%;
+    border-radius: 7px;
+    padding:10px;
+
+}
+
+h1{
+    color: #2c2b2b;
+    text-align: center;
+}
+p{
+        color: #525252;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+}
+button{
+   border-radius: 7px;
+   padding:10px;
+  cursor: pointer;
+  background-color: rgb(235, 56, 24);
+  color: rgb(255, 255, 255);
+  width: 50%;
+  font-size: 22px;
+  align-items: center;
+
+}
+
+.contenedor-form {
+  display: flex;
+  flex-direction: column;  /* todo en columna */
+  align-items: center;     /* centra horizontal */
+  justify-content: center; /* centra vertical si le das height */
+  text-align: center;      /* centra texto */
+  height: 100vh;           /* opcional: centra en toda la pantalla */
+}
+
+#form-producto {
+  display: flex;
+  flex-direction: column; /* inputs uno debajo del otro */
+  gap: 15px;              /* espacio entre inputs y botón */
+  align-items: center;    /* centra el contenido */
+}

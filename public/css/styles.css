@@ -1,0 +1,332 @@
+/* ================== BODY ================== */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* ================== ENCABEZADO CUOTAS ================== */
+.Encabezado-cuotas {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: #f1f1f1;
+  padding: 6px 0;
+  font-size: 14px;
+  font-family: 'Ubuntu', sans-serif;
+}
+.Encabezado-cuotas span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: mover 12s linear infinite;
+}
+@keyframes mover {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ================== CONTENEDOR LOGO / DELIVERY / SEARCH ================== */
+.contenedor-logo-delivery-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #f0f1f1;
+  border: 2px solid grey;
+  box-sizing: border-box;
+}
+.contenedor-menu-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ================== MENÚ CATEGORÍAS ================== */
+.menu-categorías {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: 2px solid #888686;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  background-color: white;
+}
+.menu-categorías:hover .dropdown { display: block; }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  width: max-content;
+}
+.dropdown a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+.dropdown a:hover { background-color: #f0f0f0; }
+
+/* ================== SEARCH BOX ================== */
+.search-box {
+  position: relative;
+  width: 300px;
+}
+.search-box input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+.search-box .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* ================== DELIVERY BOX ================== */
+.delivery-box {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+}
+.svg-menu { display: flex; flex-direction: column; align-items: center; }
+
+/* ================== BOTONERA ================== */
+.Contenedor-botones { background-color: #fcfcfc; padding-bottom: 10px; }
+.botonera {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5vh;
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 1vh 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  color: #6e6e6e;
+}
+.botonera li { display: flex; align-items: center; gap: 8px; }
+.botonera img { width: 35px; height: 35px; border-radius: 5px; }
+
+/* ================== CARRUSEL ================== */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center; /* centra la imagen horizontalmente */
+  align-items: center;     /* centra la imagen verticalmente */
+}
+
+.slide img {
+  max-width: 100%;   /* no sobrepasa el ancho del contenedor */
+  max-height: 400px; /* altura máxima deseada para el carrusel */
+  object-fit: contain; /* mantiene proporción, no recorta */
+}
+
+/* Flechas */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  width: 50px;      /* ancho fijo */
+  height: 50px;     /* altura fija */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+.dot {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot.active { background: #1E88E5; }
+
+/* ================== CONTENEDOR OFERTAS ================== */
+.contenedor-ofertas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  margin: 0 auto;
+  gap: 12px;
+}
+.contenedor-articulo {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.contenedor-articulo img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.titulo{
+  color: #0634be;
+  text-shadow: 3px #333;
+}
+/* CUOTAS Y PRECIOS */
+.span-cuotas {
+  font-size: 10px;
+  color: #fff;
+  background-color: #ed1d24;
+  padding: 3px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.contenedor-precio { display: flex; flex-direction: column; }
+.precio-final { color: #0634be; font-size: 18px; text-decoration: line-through; }
+.precio-descuento { color: #1aa2b4; font-size: 18px; font-weight: 700; }
+
+/* ICONOS Y ESTRELLAS */
+.contenedor-icons { display: flex; gap: 10px; align-items: center; justify-content: flex-start; }
+.contenedor-heart img, .contenedor-cart img { width: 26px; cursor: pointer; }
+.stars::before { content: "⭐⭐⭐⭐⭐"; font-size: 2vh; }
+.letra-peq { font-size: 2vh; color: #9b9a9a; }
+.red-desc { color: #ed1d24; font-size: 1.5vh; font-weight: 700; }
+
+/* VISA */
+.visa-svg { width: 32px; height: auto; vertical-align: middle; }
+.visa-cuotas {
+  color: #1666df;
+  background-color: #d3e5f7;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* RESET MARGEN */
+p, span { margin: 0; line-height: 1.2; }
+.footer {
+  background: #111;
+  color: #eee;
+  padding: 50px 20px 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h2.logo {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin: 10px 0;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+.social-links a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  transition: transform 0.3s;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
