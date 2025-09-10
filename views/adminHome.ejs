@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Admin</title>
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+
+  <!-- Formulario para agregar oferta -->
+  <form action="/admin/oferta" method="POST">
+    <input type="text" name="titulo" placeholder="Detalle del producto" required>
+    <input type="text" name="descripcion" placeholder="Descripción de cuotas. Ej: 20% off con Tarjeta VISA/MASTER" required>
+    <input type="number" name="precio_final" placeholder="Precio SIN descuento" required>
+    <input type="number" name="precio_descuento" placeholder="Precio CON descuento">
+    <input type="number" name="cuotas" placeholder="Nº cuotas">
+    <input type="text" name="img" placeholder="URL Imagen">
+
+    <label for="tarjeta">Tipo de Tarjeta</label>
+    <select name="tarjeta" id="tarjeta" required>
+      <option value="visa">VISA</option>
+      <option value="mastercard">MasterCard</option>
+      <option value="amex">American Express</option>
+    </select>
+    <button type="submit">Agregar Oferta</button>
+  </form>
+
+  <hr>
+
+  <!-- Listado de ofertas -->
+  <h2>Ofertas actuales</h2>
+  <ul>
+    <% ofertas.forEach(oferta => { %>
+      <li>
+        <strong><%= oferta.titulo %></strong> - <%= oferta.precio_final %>$
+        <form action="/admin/oferta/<%= oferta.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit">🗑️ Borrar</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+  
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super-online | Registro</title>
+  <link rel="stylesheet" href="/css/loginStyles.css">
+</head>
+<body>
+  <h1 class="titulo">¡Bienvenido! Registrate</h1>
+  <img src="/happy-svgrepo-com.svg" alt="" style="width:60px">
+
+  <div class="contenedor-form">
+    <p class="subtitulo">Crea tu cuenta para comenzar a comprar en nuestro super.</p>
+
+    <form id="form-register" method="POST" action="/auth/register">
+      <input type="email" name="email" placeholder="E-mail" required style="font-size: 25px;">
+      <input type="password" name="password" placeholder="Contraseña" required style="font-size: 25px;"><br>
+      <button type="submit" style="font-size: 25px;">Registrarme</button>
+    </form>
+
+    <p>¿Ya tenés cuenta? <a href="/auth/login">Iniciar sesión</a></p>
+  </div>
+</body>
+</html>

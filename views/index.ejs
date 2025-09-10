@@ -62,11 +62,11 @@
                 <span>Delivery</span> 
             </div>
             <div class="svg-menu">
-                <img src="/cart-large-svgrepo-com (1).svg" alt="" style="width:40px">
+                <a href="/carrito"><img src="/cart-large-svgrepo-com (1).svg" alt="" style="width:40px"></a>
                 <span>Carrito</span>
             </div>
             <div class="svg-menu">
-                <img src="/user-svgrepo-com (2).svg" alt="" style="width:40px">
+                <a href="/login"><img src="/user-svgrepo-com (2).svg" alt="" style="width:40px"></a>
                 <span>Ingresar</span>
             </div>
         </div>
@@ -362,17 +362,35 @@ async function cargarOfertas() {
     contenedor.innerHTML = "";
 
     ofertas.forEach(o => {
+      // Definir ícono según la tarjeta
+      let iconoTarjeta = "";
+      if (o.tarjeta === "visa") iconoTarjeta = "/visa.svg";
+      else if (o.tarjeta === "mastercard") iconoTarjeta = "/mastercard.svg";
+      else if (o.tarjeta === "amex") iconoTarjeta = "/amex.svg";
+
       contenedor.innerHTML += `
         <div class="contenedor-articulo">
           <img src="${o.img}" alt="${o.titulo}">
           <div class="contenedor-cuotas">
-            <p class="span-cuotas">${o.cuotas}</p>
+            <p class="span-cuotas">${o.cuotas} CUOTAS SIN INTERÉS</p>
             <span class="red-desc">${o.descripcion}</span>
             <div class="contenedor-precio">
               <p class="precio-final">$${o.precio_final}</p>
               <p class="precio-descuento">$${o.precio_descuento}</p>
             </div>
             <p class="letra-peq">${o.titulo}</p>
+            <div class="contenedor-icons">
+              <div class="contenedor-heart">
+                <img src="/corazón.svg" alt="Favorito">
+              </div>
+              <div class="contenedor-cart" 
+                    onclick="agregarAlCarrito(${o.id}, '${o.titulo}', ${o.precio_descuento}, '${o.img}')">
+                        <img src="/carrito.svg" alt="Agregar al carrito">
+             </div
+              <div class="contenedor-tarjeta">
+                ${iconoTarjeta ? `<img src="${iconoTarjeta}" alt="${o.tarjeta}" style="width:25px">` : ""}
+              </div>
+            </div>
           </div>
         </div>
       `;
@@ -383,6 +401,7 @@ async function cargarOfertas() {
 }
 
 cargarOfertas();
+
 </script>
 
 </body>
