@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#carrito-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.producto {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: center;
+    gap: 15px;
+}
+
+.producto img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cantidad {
+    width: 60px;
+}
+
+.eliminar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.eliminar-btn:hover {
+    background-color: #c0392b;
+}

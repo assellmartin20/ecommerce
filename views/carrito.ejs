@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="/css/carritoStyles.css">
+</head>
+<body>
+  <h1>Mi Carrito de Compras</h1>
+
+  <div id="carrito-container">
+    <% if (carrito.length === 0) { %>
+      <p>Tu carrito está vacío</p>
+    <% } else { %>
+      <% carrito.forEach(p => { %>
+        <div class="producto-carrito">
+          <img src="<%= p.img %>" alt="<%= p.titulo %>" width="100">
+          <p><%= p.titulo %></p>
+          <p>$<%= p.precio %></p>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <div id="total-container">
+    <p>Total: $
+      <%= carrito.reduce((acc, p) => acc + p.precio, 0) %>
+    </p>
+  </div>
+
+  <button id="comprar-btn">Comprar</button>
+</body>
+</html>
